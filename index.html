@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sangam Devhare | AI/ML Developer Portfolio</title>
+  <meta name="description" content="Sangam Devhare – AI/ML Developer, CS Student, Builder of intelligent real-world solutions. Explore projects, skills, and achievements." />
+  <meta property="og:title" content="Sangam Devhare | AI/ML Developer" />
+  <meta property="og:description" content="Futuristic portfolio of Sangam Devhare &ndash; AI/ML Developer &amp; CS Student." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&amp;family=Rajdhani:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--            BOOT LOADER SCREEN               -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="boot-loader" class="boot-loader">
+    <div class="boot-canvas">
+      <div class="boot-grid" aria-hidden="true"></div>
+      <div class="boot-content">
+        <div class="boot-logo">
+          <span class="boot-bracket">[</span>
+          <span class="boot-name">SD</span>
+          <span class="boot-bracket">]</span>
+        </div>
+        <div class="boot-bar-container">
+          <div class="boot-bar" id="boot-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="boot-log" id="boot-log">
+          <div class="boot-line active"></div>
+        </div>
+        <div class="boot-percent" id="boot-percent">0%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--            CUSTOM CURSOR                    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="cursor-dot" class="cursor-dot"></div>
+  <div id="cursor-ring" class="cursor-ring"></div>
+  <div id="cursor-glow" class="cursor-glow"></div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--            PARTICLE CANVAS                  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--            NAVIGATION                       -->
+  <!-- ═══════════════════════════════════════════ -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#home">
+        <span class="logo-bracket">[</span>
+        <span class="logo-text">SD</span>
+        <span class="logo-bracket">]</span>
+        <span class="logo-pulse" aria-hidden="true"></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#certifications" class="nav-link" data-section="certifications">Certifications</a></li>
+        <li><a href="#achievements" class="nav-link" data-section="achievements">Achievements</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+      <a href="#" class="btn-resume magnetic-btn" id="resume-btn" onclick="alert('Resume download coming soon!')">
+        <span class="btn-text">Download Resume</span>
+        <span class="btn-icon">↓</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--            HERO SECTION                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="home" class="hero-section">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-scanline"></div>
+    <div class="hero-inner">
+
+      <!-- LEFT: TEXT CONTENT -->
+      <div class="hero-content" data-aos="fade-right">
+        <div class="hero-tag">
+          <span class="tag-dot"></span>
+          <span>AVAILABLE FOR OPPORTUNITIES</span>
+        </div>
+        <h1 class="hero-greeting">Hi, There 👋</h1>
+        <h2 class="hero-name">I'm <span class="name-glow">Sangam</span></h2>
+        <div class="hero-role-wrapper">
+          <span class="role-prefix">⟨</span>
+          <span class="hero-role" id="hero-role">AI/ML Developer</span>
+          <span class="role-prefix">⟩</span>
+        </div>
+        <p class="hero-subtitle">
+          Passionate about building intelligent solutions<br />that solve real-world problems.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary magnetic-btn">
+            <span>View My Work</span>
+            <span class="btn-arrow">↗</span>
+            <div class="btn-shine"></div>
+          </a>
+          <a href="#contact" class="btn-secondary magnetic-btn">
+            <span>Contact Me</span>
+            <span class="btn-arrow">✈</span>
+          </a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/sangamdevhare6-crypto" target="_blank" class="social-link magnetic-btn" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/sangam-devhare-378721370/" target="_blank" class="social-link magnetic-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="mailto:sangamdevhare6@gmail.com" class="social-link magnetic-btn" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: HOLOGRAPHIC PROFILE -->
+      <div class="hero-profile-area" data-aos="fade-left">
+        <div class="holo-frame">
+          <!-- Rotating rings -->
+          <div class="holo-ring ring-1"></div>
+          <div class="holo-ring ring-2"></div>
+          <div class="holo-ring ring-3"></div>
+          <div class="holo-ring ring-4"></div>
+          <!-- Orbiting dots -->
+          <div class="orbit-dot orbit-dot-1"></div>
+          <div class="orbit-dot orbit-dot-2"></div>
+          <div class="orbit-dot orbit-dot-3"></div>
+          <!-- Scanning line -->
+          <div class="scan-line"></div>
+          <!-- Corner HUD elements -->
+          <div class="hud-corner hud-tl"></div>
+          <div class="hud-corner hud-tr"></div>
+          <div class="hud-corner hud-bl"></div>
+          <div class="hud-corner hud-br"></div>
+          <!-- Profile image -->
+          <div class="profile-img-wrapper">
+            <img src="assets/images/profile.jpg" alt="Sangam Devhare" class="profile-img" id="profile-photo" />
+            <div class="profile-overlay"></div>
+          </div>
+          <!-- HUD data labels -->
+          <div class="hud-label hud-label-1">
+            <span class="hud-dot"></span>AI/ML
+          </div>
+          <div class="hud-label hud-label-2">
+            <span class="hud-dot"></span>DEV
+          </div>
+          <div class="hud-label hud-label-3">
+            <span class="hud-dot"></span>CS 2026
+          </div>
+          <div class="hud-status">
+            <span class="status-dot"></span>ONLINE
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /hero-inner -->
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--            STATS SECTION                    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="stats" class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card glass-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="stat-icon">⚡</div>
+        <div class="stat-number" data-target="2" data-suffix="+">0</div>
+        <div class="stat-label">Years of Learning</div>
+        <div class="stat-glow"></div>
+      </div>
+      <div class="stat-card glass-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="stat-icon">🚀</div>
+        <div class="stat-number" data-target="5" data-suffix="+">0</div>
+        <div class="stat-label">Completed Projects</div>
+        <div class="stat-glow"></div>
+      </div>
+      <div class="stat-card glass-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="stat-icon">🏆</div>
+        <div class="stat-number" data-target="3" data-suffix="+">0</div>
+        <div class="stat-label">Certifications</div>
+        <div class="stat-glow"></div>
+      </div>
+      <div class="stat-card glass-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-icon">🌐</div>
+        <div class="stat-number" data-target="2" data-suffix="+">0</div>
+        <div class="stat-label">Hackathons Participated</div>
+        <div class="stat-glow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--            ABOUT SECTION                    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="about" class="about-section section-pad">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-tag">// ABOUT ME</div>
+        <h2 class="section-title">Who <span class="highlight">I Am</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text" data-aos="fade-right">
+          <p class="about-desc">
+            I am <span class="highlight">Sangam Devhare</span>, a Computer Science (AI/ML) student passionate about programming, artificial intelligence, cybersecurity and building innovative real-world solutions. I thrive on challenges and love converting complex problems into elegant, impactful applications.
+          </p>
+          <div class="about-details">
+            <div class="detail-item">
+              <span class="detail-key">College</span>
+              <span class="detail-val">Deogir Institute Of Engineering & Management Of Studies</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-key">Branch</span>
+              <span class="detail-val">Computer Science (AI/ML)</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-key">Graduation</span>
+              <span class="detail-val">2029</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-key">SGPA</span>
+              <span class="detail-val">6.95</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-key">Focus Areas</span>
+              <span class="detail-val">AI/ML · Cybersecurity · Web Dev</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-timeline" data-aos="fade-left">
+          <div class="timeline-label">// EDUCATION TIMELINE</div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content glass-card">
+                <div class="timeline-year">2025 – 2029</div>
+                <div class="timeline-title">B.E. Computer Science (AI/ML)</div>
+                <div class="timeline-sub">Deogir Institute of Engineering</div>
+                <div class="timeline-badge">SGPA: 6.95</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content glass-card">
+                <div class="timeline-year">2024 – 2025</div>
+                <div class="timeline-title">HSC – Science</div>
+                <div class="timeline-sub">Maharashtra State Board</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content glass-card">
+                <div class="timeline-year">2022 – 2023</div>
+                <div class="timeline-title">SSC</div>
+                <div class="timeline-sub">Maharashtra State Board</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--            SKILLS SECTION                   -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="skills" class="skills-section section-pad">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-tag">// TECH STACK</div>
+        <h2 class="section-title">My <span class="highlight">Skills</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-grid">
+
+        <!-- Python -->
+        <div class="skill-card tilt-card glass-card" data-aos="zoom-in" data-aos-delay="0"
+             data-skill="Python" data-level="85" data-desc="Primary language for AI/ML, data science, automation and scripting.">
+          <div class="skill-spotlight"></div>
+          <div class="skill-icon-wrap">
+            <div class="skill-icon">🐍</div>
+          </div>
+          <div class="skill-radial">
+            <svg class="skill-svg" viewBox="0 0 120 120">
+              <circle class="svg-bg" cx="60" cy="60" r="50"/>
+              <circle class="svg-progress" cx="60" cy="60" r="50" data-percent="85"/>
+            </svg>
+            <div class="skill-percent">85%</div>
+          </div>
+          <div class="skill-name">Python</div>
+          <div class="skill-desc-hover">Primary language for AI/ML, data science, automation and scripting.</div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- C++ -->
+        <div class="skill-card tilt-card glass-card" data-aos="zoom-in" data-aos-delay="100"
+             data-skill="C++" data-level="75" data-desc="Strong OOP foundations, DSA problem solving and competitive programming.">
+          <div class="skill-spotlight"></div>
+          <div class="skill-icon-wrap">
+            <div class="skill-icon">⚙️</div>
+          </div>
+          <div class="skill-radial">
+            <svg class="skill-svg" viewBox="0 0 120 120">
+              <circle class="svg-bg" cx="60" cy="60" r="50"/>
+              <circle class="svg-progress" cx="60" cy="60" r="50" data-percent="75"/>
+            </svg>
+            <div class="skill-percent">75%</div>
+          </div>
+          <div class="skill-name">C++</div>
+          <div class="skill-desc-hover">Strong OOP foundations, DSA problem solving and competitive programming.</div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- HTML -->
+        <div class="skill-card tilt-card glass-card" data-aos="zoom-in" data-aos-delay="200"
+             data-skill="HTML" data-level="90" data-desc="Semantic, accessible HTML5 structure for modern web apps.">
+          <div class="skill-spotlight"></div>
+          <div class="skill-icon-wrap">
+            <div class="skill-icon">🌐</div>
+          </div>
+          <div class="skill-radial">
+            <svg class="skill-svg" viewBox="0 0 120 120">
+              <circle class="svg-bg" cx="60" cy="60" r="50"/>
+              <circle class="svg-progress" cx="60" cy="60" r="50" data-percent="90"/>
+            </svg>
+            <div class="skill-percent">90%</div>
+          </div>
+          <div class="skill-name">HTML5</div>
+          <div class="skill-desc-hover">Semantic, accessible HTML5 structure for modern web apps.</div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- CSS -->
+        <div class="skill-card tilt-card glass-card" data-aos="zoom-in" data-aos-delay="300"
+             data-skill="CSS" data-level="85" data-desc="Advanced CSS3, animations, glassmorphism, responsive layouts.">
+          <div class="skill-spotlight"></div>
+          <div class="skill-icon-wrap">
+            <div class="skill-icon">🎨</div>
+          </div>
+          <div class="skill-radial">
+            <svg class="skill-svg" viewBox="0 0 120 120">
+              <circle class="svg-bg" cx="60" cy="60" r="50"/>
+              <circle class="svg-progress" cx="60" cy="60" r="50" data-percent="85"/>
+            </svg>
+            <div class="skill-percent">85%</div>
+          </div>
+          <div class="skill-name">CSS3</div>
+          <div class="skill-desc-hover">Advanced CSS3, animations, glassmorphism, responsive layouts.</div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="skill-card tilt-card glass-card" data-aos="zoom-in" data-aos-delay="400"
+             data-skill="JavaScript" data-level="80" data-desc="DOM manipulation, ES6+, interactive UIs and web applications.">
+          <div class="skill-spotlight"></div>
+          <div class="skill-icon-wrap">
+            <div class="skill-icon">⚡</div>
+          </div>
+          <div class="skill-radial">
+            <svg class="skill-svg" viewBox="0 0 120 120">
+              <circle class="svg-bg" cx="60" cy="60" r="50"/>
+              <circle class="svg-progress" cx="60" cy="60" r="50" data-percent="80"/>
+            </svg>
+            <div class="skill-percent">80%</div>
+          </div>
+          <div class="skill-name">JavaScript</div>
+          <div class="skill-desc-hover">DOM manipulation, ES6+, interactive UIs and web applications.</div>
+          <div class="card-glow"></div>
+        </div>
+
+      </div><!-- /skills-grid -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--            PROJECTS SECTION                 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="projects" class="projects-section section-pad">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-tag">// FEATURED WORK</div>
+        <h2 class="section-title">My <span class="highlight">Projects</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+
+        <!-- Project 1: Cybersecurity Scanner -->
+        <div class="project-card tilt-card glass-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="project-spotlight"></div>
+          <div class="project-header">
+            <div class="project-icon cyber-icon">🛡️</div>
+            <div class="project-tags">
+              <span class="ptag">Python</span>
+              <span class="ptag">Security</span>
+              <span class="ptag">CLI</span>
+            </div>
+          </div>
+          <div class="project-number">01</div>
+          <h3 class="project-name">Cybersecurity Awareness Scanner</h3>
+          <p class="project-desc">An intelligent cybersecurity scanning tool that identifies vulnerabilities, provides awareness reports and helps users understand potential threats in real time.</p>
+          <div class="project-footer">
+            <a href="https://github.com/sangamdevhare6-crypto" target="_blank" class="proj-btn magnetic-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <span class="proj-btn proj-btn-demo disabled">Live Demo</span>
+          </div>
+          <div class="project-neon-border"></div>
+        </div>
+
+        <!-- Project 2: SheGuard -->
+        <div class="project-card tilt-card glass-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-spotlight"></div>
+          <div class="project-header">
+            <div class="project-icon safety-icon">🆘</div>
+            <div class="project-tags">
+              <span class="ptag">PWA</span>
+              <span class="ptag">JavaScript</span>
+              <span class="ptag">Safety</span>
+            </div>
+          </div>
+          <div class="project-number">02</div>
+          <h3 class="project-name">SheGuard Women Safety SOS</h3>
+          <p class="project-desc">A Progressive Web App designed for women's safety with instant SOS alerts, location sharing, emergency contacts, and real-time tracking features.</p>
+          <div class="project-footer">
+            <a href="https://github.com/sangamdevhare6-crypto" target="_blank" class="proj-btn magnetic-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <span class="proj-btn proj-btn-demo disabled">Live Demo</span>
+          </div>
+          <div class="project-neon-border"></div>
+        </div>
+
+        <!-- Project 3: Smart Agriculture -->
+        <div class="project-card tilt-card glass-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-spotlight"></div>
+          <div class="project-header">
+            <div class="project-icon agri-icon">🌱</div>
+            <div class="project-tags">
+              <span class="ptag">AI/ML</span>
+              <span class="ptag">Python</span>
+              <span class="ptag">IoT</span>
+            </div>
+          </div>
+          <div class="project-number">03</div>
+          <h3 class="project-name">Smart Agriculture Assistant</h3>
+          <p class="project-desc">AI-powered agricultural assistant that provides crop recommendations, disease detection, weather analysis, and smart irrigation suggestions for farmers.</p>
+          <div class="project-footer">
+            <a href="https://github.com/sangamdevhare6-crypto" target="_blank" class="proj-btn magnetic-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <span class="proj-btn proj-btn-demo disabled">Live Demo</span>
+          </div>
+          <div class="project-neon-border"></div>
+        </div>
+
+        <!-- Project 4: Data Buying Website -->
+        <div class="project-card tilt-card glass-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="project-spotlight"></div>
+          <div class="project-header">
+            <div class="project-icon data-icon">📊</div>
+            <div class="project-tags">
+              <span class="ptag">HTML/CSS</span>
+              <span class="ptag">JS</span>
+              <span class="ptag">E-Commerce</span>
+            </div>
+          </div>
+          <div class="project-number">04</div>
+          <h3 class="project-name">Data Buying Website</h3>
+          <p class="project-desc">A modern data marketplace platform that enables users to browse, purchase and manage data packages with a sleek UI and smooth checkout experience.</p>
+          <div class="project-footer">
+            <a href="https://github.com/sangamdevhare6-crypto" target="_blank" class="proj-btn magnetic-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <span class="proj-btn proj-btn-demo disabled">Live Demo</span>
+          </div>
+          <div class="project-neon-border"></div>
+        </div>
+
+        <!-- Project 5: More Projects -->
+        <div class="project-card project-more tilt-card glass-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="project-spotlight"></div>
+          <div class="more-content">
+            <div class="more-icon">🔮</div>
+            <h3 class="more-title">More Coming Soon</h3>
+            <p class="more-desc">Working on exciting AI/ML projects, open-source contributions and innovative tools. Stay tuned!</p>
+            <a href="https://github.com/sangamdevhare6-crypto" target="_blank" class="btn-primary magnetic-btn" style="margin-top:1.5rem; font-size:0.85rem;">
+              <span>View GitHub</span>
+              <span class="btn-arrow">↗</span>
+            </a>
+          </div>
+          <div class="project-neon-border"></div>
+        </div>
+
+      </div><!-- /projects-grid -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--          CERTIFICATIONS SECTION             -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="certifications" class="certs-section section-pad">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-tag">// CREDENTIALS</div>
+        <h2 class="section-title">My <span class="highlight">Certifications</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="certs-grid">
+
+        <div class="cert-card glass-card tilt-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="cert-icon-wrap">
+            <div class="cert-icon">🛡️</div>
+          </div>
+          <div class="cert-platform">Simplilearn SkillUP</div>
+          <h3 class="cert-title">Introduction to Cyber Security</h3>
+          <p class="cert-desc">Comprehensive introduction to cybersecurity fundamentals, threat analysis and security best practices.</p>
+          <div class="cert-footer">
+            <div class="cert-badge">Certificate of Completion</div>
+            <a href="https://www.linkedin.com/in/sangam-devhare-378721370/recent-activity/all/" target="_blank" class="cert-view-btn magnetic-btn">View Certificate →</a>
+          </div>
+          <div class="cert-glow"></div>
+        </div>
+
+        <div class="cert-card glass-card tilt-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="cert-icon-wrap">
+            <div class="cert-icon">🗄️</div>
+          </div>
+          <div class="cert-platform">HackerRank</div>
+          <h3 class="cert-title">SQL (Basic)</h3>
+          <p class="cert-desc">Demonstrated proficiency in SQL queries, database management, joins, and basic data manipulation.</p>
+          <div class="cert-footer">
+            <div class="cert-badge">Certificate of Accomplishment</div>
+            <a href="https://www.linkedin.com/in/sangam-devhare-378721370/recent-activity/all/" target="_blank" class="cert-view-btn magnetic-btn">View Certificate →</a>
+          </div>
+          <div class="cert-glow"></div>
+        </div>
+
+        <div class="cert-card glass-card tilt-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="cert-icon-wrap">
+            <div class="cert-icon">📈</div>
+          </div>
+          <div class="cert-platform">HackerRank</div>
+          <h3 class="cert-title">SQL (Advanced)</h3>
+          <p class="cert-desc">Advanced SQL skills: complex queries, window functions, optimization techniques and stored procedures.</p>
+          <div class="cert-footer">
+            <div class="cert-badge">Certificate of Accomplishment</div>
+            <a href="https://www.linkedin.com/in/sangam-devhare-378721370/recent-activity/all/" target="_blank" class="cert-view-btn magnetic-btn">View Certificate →</a>
+          </div>
+          <div class="cert-glow"></div>
+        </div>
+
+        <div class="cert-card glass-card tilt-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="cert-icon-wrap">
+            <div class="cert-icon">⚡</div>
+          </div>
+          <div class="cert-platform">HackerRank</div>
+          <h3 class="cert-title">JavaScript (Basic)</h3>
+          <p class="cert-desc">Core JavaScript fundamentals: functions, closures, promises, DOM manipulation and ES6+ features.</p>
+          <div class="cert-footer">
+            <div class="cert-badge">Certificate of Accomplishment</div>
+            <a href="https://www.linkedin.com/in/sangam-devhare-378721370/recent-activity/all/" target="_blank" class="cert-view-btn magnetic-btn">View Certificate →</a>
+          </div>
+          <div class="cert-glow"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--          ACHIEVEMENTS SECTION               -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="achievements" class="achievements-section section-pad">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-tag">// MILESTONES</div>
+        <h2 class="section-title">My <span class="highlight">Achievements</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="achievement-showcase" data-aos="zoom-in">
+        <div class="achievement-card glass-card tilt-card">
+          <div class="achievement-glow-ring"></div>
+          <div class="achievement-inner">
+            <div class="achievement-trophy">🏆</div>
+            <div class="achievement-org">International Model United Nations</div>
+            <h3 class="achievement-title">IMUN Internship Offer Letter</h3>
+            <p class="achievement-desc">
+              Received an official Internship Offer Letter from the International Model United Nations (IMUN), recognizing leadership, research, and diplomatic communication skills on a global platform.
+            </p>
+            <div class="achievement-meta">
+              <span class="ach-tag">🌍 International</span>
+              <span class="ach-tag">🎓 Internship</span>
+              <span class="ach-tag">🏛️ Model UN</span>
+            </div>
+            <a href="https://www.linkedin.com/in/sangam-devhare-378721370/recent-activity/all/" target="_blank" class="btn-primary magnetic-btn" style="margin-top:1.5rem;">
+              <span>View Achievement</span>
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
+          <div class="achievement-neon-border"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--            CONTACT SECTION                  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="contact" class="contact-section section-pad">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-tag">// GET IN TOUCH</div>
+        <h2 class="section-title">Let's Build Something <span class="highlight">Amazing</span> Together!</h2>
+        <p class="section-subtitle">I'm always open to discussing new projects, creative ideas and opportunities.</p>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-grid">
+
+        <!-- Contact Info -->
+        <div class="contact-info" data-aos="fade-right">
+          <div class="contact-info-card glass-card">
+            <h3 class="contact-info-title">// REACH ME AT</h3>
+            <div class="contact-items">
+              <a href="mailto:sangamdevhare6@gmail.com" class="contact-item magnetic-btn">
+                <div class="ci-icon">✉</div>
+                <div class="ci-content">
+                  <span class="ci-label">Email</span>
+                  <span class="ci-value">sangamdevhare6@gmail.com</span>
+                </div>
+              </a>
+              <a href="tel:8530533407" class="contact-item magnetic-btn">
+                <div class="ci-icon">📞</div>
+                <div class="ci-content">
+                  <span class="ci-label">Phone</span>
+                  <span class="ci-value">+91 8530533407</span>
+                </div>
+              </a>
+              <a href="https://github.com/sangamdevhare6-crypto" target="_blank" class="contact-item magnetic-btn">
+                <div class="ci-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </div>
+                <div class="ci-content">
+                  <span class="ci-label">GitHub</span>
+                  <span class="ci-value">sangamdevhare6-crypto</span>
+                </div>
+              </a>
+              <a href="https://www.linkedin.com/in/sangam-devhare-378721370/" target="_blank" class="contact-item magnetic-btn">
+                <div class="ci-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </div>
+                <div class="ci-content">
+                  <span class="ci-label">LinkedIn</span>
+                  <span class="ci-value">Sangam Devhare</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrap" data-aos="fade-left">
+          <form class="contact-form glass-card" id="contact-form" novalidate>
+            <h3 class="form-title">// SEND A MESSAGE</h3>
+            <div class="form-group">
+              <input type="text" id="form-name" class="form-input" placeholder=" " required autocomplete="off" />
+              <label class="form-label" for="form-name">Your Name</label>
+              <div class="form-line"></div>
+            </div>
+            <div class="form-group">
+              <input type="email" id="form-email" class="form-input" placeholder=" " required autocomplete="off" />
+              <label class="form-label" for="form-email">Your Email</label>
+              <div class="form-line"></div>
+            </div>
+            <div class="form-group">
+              <textarea id="form-message" class="form-input form-textarea" placeholder=" " required rows="5"></textarea>
+              <label class="form-label" for="form-message">Your Message</label>
+              <div class="form-line"></div>
+            </div>
+            <button type="submit" class="btn-primary magnetic-btn form-submit" id="form-submit">
+              <span id="submit-text">Send Message</span>
+              <span class="btn-arrow" id="submit-arrow">✈</span>
+              <div class="btn-shine"></div>
+            </button>
+            <div class="form-success" id="form-success">
+              <span>✓</span> Message sent! I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--            FOOTER                           -->
+  <!-- ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-grid-overlay"></div>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-bracket">[</span>
+        <span class="logo-text">SD</span>
+        <span class="logo-bracket">]</span>
+      </div>
+      <p class="footer-text">Designed &amp; Built by <span class="highlight">Sangam Devhare</span> · 2026</p>
+      <p class="footer-sub">CS (AI/ML) · Deogir Institute · Building the Future</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--          AI ASSISTANT BUTTON                -->
+  <!-- ═══════════════════════════════════════════ -->
+  <button class="ai-fab" id="ai-fab" aria-label="AI Assistant">
+    <div class="ai-fab-ring"></div>
+    <span class="ai-fab-icon">🤖</span>
+    <span class="ai-fab-pulse"></span>
+  </button>
+
+  <!-- AI Assistant Panel -->
+  <div class="ai-panel glass-card" id="ai-panel">
+    <div class="ai-panel-header">
+      <div class="ai-panel-title">
+        <span class="ai-dot"></span>
+        AI ASSISTANT
+      </div>
+      <button class="ai-close" id="ai-close" aria-label="Close">✕</button>
+    </div>
+    <div class="ai-panel-body">
+      <div class="ai-message">
+        Hi Sangam 👋<br />
+        How can I help you explore my portfolio?
+      </div>
+      <div class="ai-options">
+        <button class="ai-option magnetic-btn" data-target="about">👤 About Me</button>
+        <button class="ai-option magnetic-btn" data-target="skills">⚡ My Skills</button>
+        <button class="ai-option magnetic-btn" data-target="projects">🚀 My Projects</button>
+        <button class="ai-option magnetic-btn" data-target="contact">✉ Contact Me</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
