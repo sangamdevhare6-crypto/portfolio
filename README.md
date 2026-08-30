@@ -19,6 +19,10 @@ portfolio/
 │   ├── icons/
 │   └── certificates/     ← Add your certificate images here
 └── README.md
+
+git add .
+git commit -m "Updated portfolio"
+git push
 ```
 
 ## ✨ Features
