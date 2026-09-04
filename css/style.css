@@ -1193,6 +1193,11 @@ body:hover .cursor-dot, body:hover .cursor-ring { opacity: 1; }
   border-radius: 8px;
   flex-shrink: 0;
 }
+.ci-icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
 .ci-content {
   display: flex; flex-direction: column; gap: 0.2rem;
 }
