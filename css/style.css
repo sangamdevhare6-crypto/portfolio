@@ -176,35 +176,328 @@ button { cursor: none; border: none; background: none; font-family: inherit; }
 /* ═══════════════════════════════════════════
    CUSTOM CURSOR
 ═══════════════════════════════════════════ */
+/* ═══════════════════════════════════════════
+   CUSTOM CURSOR + NEON SNAKE
+═══════════════════════════════════════════ */
+
+/* 🟢 ORIGINAL GLOWING DOT */
 .cursor-dot {
-  position: fixed; width: 8px; height: 8px;
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 8px;
+  height: 8px;
+
   background: var(--cyan);
   border-radius: 50%;
-  pointer-events: none; z-index: 10000;
+
+  pointer-events: none;
+  z-index: 10005;
+
   transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s;
-  box-shadow: 0 0 10px var(--cyan);
+
+  box-shadow:
+    0 0 8px var(--cyan),
+    0 0 18px var(--cyan),
+    0 0 30px rgba(0,245,255,0.5);
+
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    background 0.2s ease,
+    opacity 0.2s ease;
 }
+
+/* Original outer circle */
 .cursor-ring {
-  position: fixed; width: 32px; height: 32px;
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 32px;
+  height: 32px;
+
   border: 1px solid var(--cyan);
   border-radius: 50%;
-  pointer-events: none; z-index: 9999;
+
+  pointer-events: none;
+  z-index: 10004;
+
   transform: translate(-50%, -50%);
-  transition: all 0.12s ease-out;
+
+  opacity: 0.7;
+
+  box-shadow:
+    0 0 10px rgba(0,245,255,0.25);
+
+  transition:
+    width 0.15s ease,
+    height 0.15s ease,
+    border-color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+/* Large soft glow */
+.cursor-glow {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 200px;
+  height: 200px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0,245,255,0.07) 0%,
+      rgba(0,102,255,0.03) 35%,
+      transparent 70%
+    );
+
+  border-radius: 50%;
+
+  pointer-events: none;
+  z-index: 10003;
+
+  transform: translate(-50%, -50%);
+
+  transition:
+    left 0.25s ease-out,
+    top 0.25s ease-out;
+}
+
+/* Hover effect */
+body:hover .cursor-dot,
+body:hover .cursor-ring {
+  opacity: 1;
+}
+
+.cursor-hover .cursor-dot {
+  width: 14px;
+  height: 14px;
+
+  background: var(--magenta);
+
+  box-shadow:
+    0 0 10px var(--magenta),
+    0 0 25px var(--magenta);
+}
+
+.cursor-hover .cursor-ring {
+  width: 50px;
+  height: 50px;
+
+  border-color: var(--magenta);
+
+  box-shadow:
+    0 0 20px rgba(217,70,239,0.35);
+}
+
+
+/* ═══════════════════════════════════════════
+   🐍 NEON SNAKE HEAD
+═══════════════════════════════════════════ */
+
+.snake-cursor {
+  position: fixed;
+
+  left: 0;
+  top: 0;
+
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+  z-index: 10001;
+
+  transform: translate(-50%, -50%);
+
+  opacity: 0;
+
+  background:
+    radial-gradient(
+      circle,
+      #ffffff 0%,
+      var(--cyan) 25%,
+      var(--blue) 60%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 8px var(--cyan),
+    0 0 18px var(--cyan),
+    0 0 35px rgba(0,245,255,0.8),
+    0 0 60px rgba(0,102,255,0.45);
+
+  transition:
+    opacity 0.2s ease,
+    width 0.2s ease,
+    height 0.2s ease;
+
+  will-change: left, top, transform;
+}
+
+.snake-cursor.active {
+  opacity: 1;
+}
+
+
+/* ═══════════════════════════════════════════
+   🐍 SNAKE BODY BUBBLES
+═══════════════════════════════════════════ */
+
+.snake-segment {
+  position: fixed;
+
+  left: 0;
+  top: 0;
+
+  width: 13px;
+  height: 13px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+  z-index: 10000;
+
+  transform: translate(-50%, -50%);
+
+  opacity: 0;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,0.95) 0%,
+      var(--cyan) 28%,
+      var(--blue) 65%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 6px var(--cyan),
+    0 0 14px rgba(0,245,255,0.8),
+    0 0 25px rgba(0,102,255,0.35);
+
+  will-change: left, top, transform;
+
+  transition:
+    opacity 0.25s ease;
+}
+
+.snake-segment.active {
+  opacity: 1;
+}
+
+
+/* 🟣 Tail */
+.snake-segment.tail {
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,0.9) 0%,
+      var(--magenta) 35%,
+      var(--purple) 70%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 5px var(--magenta),
+    0 0 12px rgba(217,70,239,0.8),
+    0 0 24px rgba(124,58,237,0.45);
+}
+
+
+/* Hidden state */
+.snake-cursor.hidden,
+.snake-segment.hidden {
+  opacity: 0;
+}
+
+
+/* ═══════════════════════════════════════════
+   🖱️ CURSOR HOVER
+═══════════════════════════════════════════ */
+
+.cursor-hover .snake-cursor {
+  width: 22px;
+  height: 22px;
+
+  background:
+    radial-gradient(
+      circle,
+      #ffffff 0%,
+      var(--magenta) 30%,
+      var(--purple) 70%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 10px var(--magenta),
+    0 0 25px var(--magenta),
+    0 0 45px rgba(217,70,239,0.5);
+}
+
+
+/* ═══════════════════════════════════════════
+   📱 MOBILE / TOUCH
+═══════════════════════════════════════════ */
+
+@media (hover: none) and (pointer: coarse) {
+
+  body {
+    cursor: auto;
+  }
+
+  button,
+  a {
+    cursor: pointer;
+  }
+
+  .cursor-dot,
+  .cursor-ring,
+  .cursor-glow {
+    display: none !important;
+  }
+
+  .snake-cursor,
+  .snake-segment {
+    display: block;
+  }
+}
+
+/* ─── SWARM CURSOR PARTICLES ─── */
+.cursor-swarm {
+  position: fixed;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9997;
+  background: var(--cyan);
+  box-shadow:
+    0 0 8px var(--cyan),
+    0 0 18px rgba(0,245,255,0.7);
+  transform: translate(-50%, -50%);
+  opacity: 0.8;
+  will-change: transform;
+}
+
+.cursor-swarm-trail {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9996;
+  background: var(--magenta);
+  box-shadow: 0 0 10px var(--magenta);
+  transform: translate(-50%, -50%);
   opacity: 0.7;
 }
-.cursor-glow {
-  position: fixed; width: 200px; height: 200px;
-  background: radial-gradient(circle, rgba(0,245,255,0.06) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none; z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: all 0.25s ease-out;
-}
-body:hover .cursor-dot, body:hover .cursor-ring { opacity: 1; }
-.cursor-hover .cursor-dot  { width: 14px; height: 14px; background: var(--magenta); }
-.cursor-hover .cursor-ring { width: 50px; height: 50px; border-color: var(--magenta); }
+
 
 /* ═══════════════════════════════════════════
    NAVIGATION
