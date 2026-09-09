@@ -429,44 +429,110 @@ function initStatCounters() {
 }
 
 /* ─────────────────────────────────────────────
-   14. CONTACT FORM
+   14. CONTACT FORM – EMAILJS
 ───────────────────────────────────────────── */
 function initContactForm() {
-  const form    = document.getElementById('contact-form');
+  const form = document.getElementById('contact-form');
   const success = document.getElementById('form-success');
-  const submit  = document.getElementById('form-submit');
+  const submit = document.getElementById('form-submit');
+
   if (!form) return;
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name  = document.getElementById('form-name');
+
+    const name = document.getElementById('form-name');
     const email = document.getElementById('form-email');
-    const msg   = document.getElementById('form-message');
+    const msg = document.getElementById('form-message');
+
     let valid = true;
 
+    /* Validate fields */
     [name, email, msg].forEach(field => {
       if (!field.value.trim()) {
         field.style.borderColor = '#f87171';
         valid = false;
-        setTimeout(() => { field.style.borderColor = ''; }, 2000);
+
+        setTimeout(() => {
+          field.style.borderColor = '';
+        }, 2000);
       }
     });
+
+    /* Validate email */
+    if (
+      email.value.trim() &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())
+    ) {
+      email.style.borderColor = '#f87171';
+      valid = false;
+
+      setTimeout(() => {
+        email.style.borderColor = '';
+      }, 2000);
+    }
+
     if (!valid) return;
 
-    // Simulate send
-    submit.innerHTML = '<span>Sending...</span><span class="btn-arrow">⏳</span>';
+    /* Loading state */
+    submit.innerHTML =
+      '<span>Sending...</span><span class="btn-arrow">⏳</span>';
+
     submit.disabled = true;
 
-    setTimeout(() => {
-      submit.innerHTML = '<span>Sent!</span><span class="btn-arrow">✓</span>';
+    try {
+      /* Send message using EmailJS */
+      const response = await emailjs.sendForm(
+        'service_jw05ddu',
+        'template_jwzkzye',
+        form
+      );
+
+      console.log('EmailJS Success:', response.status, response.text);
+
+      /* Success state */
+      submit.innerHTML =
+        '<span>Sent!</span><span class="btn-arrow">✓</span>';
+
+      success.innerHTML =
+        '<span>✓</span> Your message was sent successfully!';
+
       success.style.display = 'block';
+
+      /* Clear form */
       form.reset();
+
+      /* Reset button after 4 seconds */
       setTimeout(() => {
-        submit.innerHTML = '<span>Send Message</span><span class="btn-arrow">✈</span>';
+        submit.innerHTML =
+          '<span>Send Message</span><span class="btn-arrow">✈</span>';
+
         submit.disabled = false;
         success.style.display = 'none';
       }, 4000);
-    }, 1500);
+
+    } catch (error) {
+
+      console.error('EmailJS Error:', error);
+
+      /* Error state */
+      submit.innerHTML =
+        '<span>Failed</span><span class="btn-arrow">✕</span>';
+
+      success.innerHTML =
+        '<span>!</span> Message could not be sent. Please try again.';
+
+      success.style.display = 'block';
+
+      /* Reset button */
+      setTimeout(() => {
+        submit.innerHTML =
+          '<span>Send Message</span><span class="btn-arrow">✈</span>';
+
+        submit.disabled = false;
+        success.style.display = 'none';
+      }, 4000);
+    }
   });
 }
 
