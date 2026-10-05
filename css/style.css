@@ -1838,3 +1838,4 @@ body:hover .cursor-ring {
   .ai-panel { width: calc(100vw - 2rem); right: 1rem; bottom: 5rem; }
   .cursor-dot, .cursor-ring, .cursor-glow { display: none; }
 }
+
